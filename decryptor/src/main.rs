@@ -49,7 +49,8 @@ const PREFIXES: &[&str; 32] = &[
 
 type Aes256CbcDec = Decryptor<Aes256>;
 
-/// 바이트 배열 `a`에 `b`와 `1`을 더하는 연산을 수행합니다 (큰 정수 덧셈).
+/// 두 바이트 배열 a와 b를 큰 정수(Big Integer)로 보고 덧셈을 수행한 후,
+/// 그 결과에 1을 더해 다시 a에 저장합니다. (a = a + b + 1)
 fn pkcs12_adjust(a: &mut [u8], b: &[u8]) {
     let mut carry: u16 = 1;
     (0..b.len()).rev().for_each(|i| {
@@ -120,8 +121,8 @@ fn decrypt_data(user_id: u64, i9: usize, ciphertext_b64: &str) -> Result<String,
 
     // salt를 16바이트로 만들고, 부족하면 0으로 채웁니다.
     let mut pbe_salt_bytes = pbe_salt_base.into_bytes();
-    pbe_salt_bytes.truncate(16); // 1. 16바이트로 자르고
-    pbe_salt_bytes.resize(16, 0); // 2. 길이가 모자라면 0으로 채웁니다.
+    pbe_salt_bytes.truncate(16); // 1. 길이가 16바이트를 넘으면 잘라냅니다.
+    pbe_salt_bytes.resize(16, 0); // 2. 길이가 16바이트보다 짧으면 0으로 채웁니다.
 
     // 이제 `pkcs12_kdf` 함수를 사용하여 키를 생성합니다.
     let aes_key = pkcs12_kdf(PBE_PASSWORD, &pbe_salt_bytes, 2, 32);
