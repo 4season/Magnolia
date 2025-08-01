@@ -1,0 +1,16 @@
+[package]
+name = "decryptor"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+aes = "0.8.4"
+base64 = "0.22.1"
+cipher = "0.4.4"
+cbc = { version = "0.1.2", features = ["alloc"] }
+sha1 = "0.10.6"
+hex = "0.4.3"
+
+# block-modes = "0.9.1"
+# sha2 = "0.10.9"
+# pbkdf2 = "0.12.2"
