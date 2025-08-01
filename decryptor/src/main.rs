@@ -138,7 +138,7 @@ fn decrypt_data(user_id: u64, i9: usize, ciphertext_b64: &str) -> Result<String,
 }
 
 fn main() {
-    // 첫 번째 성공했던 테스트 케이스
+    // 테스트, id와 message를 넣어주세요.
     println!("--- 테스트 ---");
     let user_id_1: u64 = {id};
     let encrypted_message_1 = "{message}";
