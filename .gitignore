@@ -1,0 +1,5 @@
+# Rust 빌드 산출물
+decryptor/target/
+
+# OS 파일
+.DS_Store
