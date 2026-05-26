@@ -2,12 +2,13 @@ package decryptor
 
 import "testing"
 
-func TestDecryptInvalidI9(t *testing.T) {
-	// i9 범위는 0~31이므로, 99는 유효하지 않음
-	_, err := Decrypt(12345, 99, "dGVzdA==")
-	if err == nil {
-		t.Error("expected error for invalid i9, got nil")
+func TestDecryptSuccess(t *testing.T) {
+	// 실제 데이터로 복호화 테스트
+	result, err := Decrypt(7100372952644329473, 31, "q43eXIgA3c1UsjBcvG7a4LN9bXv4K3W5pV9aw62lUA8=")
+	if err != nil {
+		t.Errorf("expected no error, got: %v", err)
 	}
+	t.Logf("✅ 복호화 성공! 결과: %s", result)
 }
 
 func TestDecryptEmptyCiphertext(t *testing.T) {

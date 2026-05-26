@@ -1,5 +1,86 @@
-# Rust 빌드 산출물
-decryptor/target/
-
-# OS 파일
+# ====================================================================
+# OS & System Files
+# ====================================================================
 .DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# ====================================================================
+# IDEs & Editors
+# ====================================================================
+.vscode/
+!.vscode/extensions.json
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# ====================================================================
+# Rust (decryptor)
+# ====================================================================
+decryptor/target/
+**/target/
+
+# ====================================================================
+# Go (api-server)
+# ====================================================================
+# Go debug & temporary binaries (VS Code Go debugging tools)
+api-server/decryptor/__debug_bin*
+__debug_bin*
+
+# Go compiled binaries
+api-server/api-server
+api-server/decryptor/decryptor
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+
+# Test binaries & Coverage
+*.test
+*.out
+*.prof
+
+# ====================================================================
+# Android (android-app)
+# ====================================================================
+.gradle/
+android-app/.gradle/
+android-app/build/
+android-app/local.properties
+android-app/captures/
+android-app/.navigation/
+.externalNativeBuild/
+android-app/.externalNativeBuild/
+
+# Android build outputs
+*.apk
+*.ap_
+*.aar
+
+# Signing keys & Keystores (CRITICAL - DO NOT PUSH!)
+*.keystore
+*.jks
+
+# ====================================================================
+# KakaoTalk Database & Decrypted Data & Credentials (CRITICAL!)
+# ====================================================================
+# KakaoTalk SQLite database files
+*.db
+*.sqlite
+*.sqlite3
+*.decrypted
+KakaoTalk.db
+KakaoTalk*.db
+
+# Local environment & secrets configuration files
+.env
+.env.*
+!.env.example
